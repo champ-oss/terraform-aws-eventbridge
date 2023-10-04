@@ -67,12 +67,6 @@ variable "input_parameters" {
 EOF
 }
 
-variable "tags" {
-  description = "Tags to assign to resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "git" {
   description = "Name of the Git repo"
   type        = string
