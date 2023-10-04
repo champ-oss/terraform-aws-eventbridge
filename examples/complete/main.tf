@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-2"
+}
+
 module "this" {
   source           = "../../"
   service_name     = "s3"
@@ -13,7 +17,7 @@ EOF
 
 module "s3" {
   source  = "github.com/champ-oss/terraform-aws-s3.git?ref=v1.0.40-137c64b"
-  git     = var.git
+  git     = "terraform-aws-eventbridge"
   protect = false
 }
 
