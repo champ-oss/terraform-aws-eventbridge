@@ -47,12 +47,12 @@ data "aws_iam_policy_document" "sts" {
 }
 
 resource "aws_iam_role" "this" {
-  name_prefix        = substr("${var.git}-schedule-", 0, 38) # 38 max length
+  name_prefix        = substr("tf-aws-eventbridge-schedule-", 0, 38) # 38 max length
   assume_role_policy = data.aws_iam_policy_document.sts.json
 }
 
 resource "aws_iam_policy" "this" {
-  name_prefix = "${var.git}-s3-eventbridge-"
+  name_prefix = "tf-aws-eventbridge-s3-eventbridge-"
   policy      = data.aws_iam_policy_document.this.json
 }
 
