@@ -5,7 +5,6 @@ resource "aws_scheduler_schedule" "universal_target" {
   state       = var.enable_state ? "ENABLED" : "DISABLED"
   start_date  = var.start_date
   end_date    = var.end_date
-  tags        = merge(local.tags, var.tags)
 
   flexible_time_window {
     mode                      = "FLEXIBLE"
