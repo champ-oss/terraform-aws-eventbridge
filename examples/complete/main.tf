@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "this" {
   }
 }
 
-data "aws_iam_policy_document" "this" {
+data "aws_iam_policy_document" "sts" {
   statement {
     actions = [
       "sts:AssumeRole"
@@ -43,12 +43,12 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_iam_role" "this" {
-  name_prefix        = substr("${var.git}-rekognition-event-bridge-", 0, 38) # 38 max length
-  assume_role_policy = data.aws_iam_policy_document.this.json
+  name_prefix        = substr("${var.git}-schedule-", 0, 38) # 38 max length
+  assume_role_policy = data.aws_iam_policy_document.sts.json
 }
 
 resource "aws_iam_policy" "this" {
-  name_prefix = "${var.git}-rek-policy-"
+  name_prefix = "${var.git}-s3-eventbridge-"
   policy      = data.aws_iam_policy_document.this.json
 }
 

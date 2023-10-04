@@ -57,6 +57,7 @@ variable "role_arn" {
 }
 
 variable "input_parameters" {
+  description = "input parameter payload for api"
   type    = string
   default = <<EOF
 {
