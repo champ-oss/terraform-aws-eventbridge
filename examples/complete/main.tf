@@ -3,10 +3,11 @@ provider "aws" {
 }
 
 module "this" {
-  source       = "../../"
-  service_name = "s3"
-  api_action   = "deleteBucket"
-  role_arn     = aws_iam_role.this.arn
+  source                    = "../../"
+  service_name              = "s3"
+  api_action                = "deleteBucket"
+  role_arn                  = aws_iam_role.this.arn
+  maximum_window_in_minutes = 1
   input_parameters = {
     Bucket = module.s3.bucket
   }
