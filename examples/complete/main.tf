@@ -60,3 +60,8 @@ resource "aws_iam_role_policy_attachment" "this" {
   policy_arn = aws_iam_policy.this.arn
   role       = aws_iam_role.this.name
 }
+
+output "s3_bucket" {
+  description = "s3 bucket to search for in test"
+  value       = module.s3.bucket
+}
