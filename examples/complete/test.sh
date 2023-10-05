@@ -7,5 +7,5 @@ do
      break
    fi
    echo " bucket found"
-   sleep 10
+   sleep 60
 done || exit 1
