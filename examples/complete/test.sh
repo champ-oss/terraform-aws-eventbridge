@@ -6,6 +6,6 @@ do
      echo "bucket not found, event bridge deleted bucket"
      break
    fi
-   echo " bucket found"
-   sleep 60
+   echo "bucket found"
+   sleep 15
 done || exit 1
