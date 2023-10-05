@@ -1,4 +1,5 @@
 resource "aws_scheduler_schedule" "universal_target" {
+  count = var.enable_resources ? 1 : 0
 
   name_prefix = "${var.git}-"
   description = var.description

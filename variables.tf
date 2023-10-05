@@ -35,10 +35,9 @@ variable "schedule_expression" {
 }
 
 variable "schedule_expression_timezone" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/scheduler_schedule#schedule_expression"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/scheduler_schedule#schedule_expression_timezone"
   type        = string
-  default     = "America/New_York"
-
+  default     = null
 }
 
 variable "service_name" {
@@ -69,4 +68,10 @@ variable "git" {
   description = "Name of the Git repo"
   type        = string
   default     = "terraform-aws-eventbridge"
+}
+
+variable "enable_resources" {
+  description = "enable or disable resource"
+  type        = bool
+  default     = true
 }

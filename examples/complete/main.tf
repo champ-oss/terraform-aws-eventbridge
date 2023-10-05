@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-2"
-}
-
 module "this" {
   source                    = "../../"
   service_name              = "s3"
