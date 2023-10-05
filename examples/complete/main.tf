@@ -3,16 +3,15 @@ provider "aws" {
 }
 
 module "this" {
-  source           = "../../"
-  service_name     = "s3"
-  api_action       = "deleteBucket"
-  role_arn         = aws_iam_role.this.arn
-  input_parameters = <<EOF
-{
-  "Bucket": "${module.s3.bucket}""
-}
-EOF
-  depends_on       = [module.s3]
+  source       = "../../"
+  service_name = "s3"
+  api_action   = "deleteBucket"
+  role_arn     = aws_iam_role.this.arn
+  input_parameters = {
+    Bucket = module.s3.bucket
+  }
+
+  depends_on = [module.s3]
 }
 
 module "s3" {

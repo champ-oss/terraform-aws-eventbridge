@@ -17,6 +17,6 @@ resource "aws_scheduler_schedule" "universal_target" {
   target {
     arn      = "arn:aws:scheduler:::aws-sdk:${var.service_name}:${var.api_action}"
     role_arn = var.role_arn
-    input    = var.input_parameters
+    input    = jsonencode(var.input_parameters)
   }
 }

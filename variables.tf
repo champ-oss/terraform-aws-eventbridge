@@ -29,25 +29,25 @@ variable "maximum_window_in_minutes" {
 }
 
 variable "schedule_expression" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#vpc_id"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/scheduler_schedule#schedule_expression"
   type        = string
   default     = "rate(1 minute)"
 }
 
 variable "schedule_expression_timezone" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#vpc_id"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/scheduler_schedule#schedule_expression"
   type        = string
   default     = "America/New_York"
 
 }
 
 variable "service_name" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#vpc_id"
+  description = "service name of api"
   type        = string
 }
 
 variable "api_action" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#vpc_id"
+  description = "api action, must be in lowerCamelCase"
   type        = string
 }
 
@@ -58,13 +58,11 @@ variable "role_arn" {
 
 variable "input_parameters" {
   description = "input parameter payload for api"
-  type        = string
-  default     = <<EOF
-{
-  "key": "value",
-  "key1": "value"
-}
-EOF
+  type        = any
+  default = {
+    key  = "value",
+    key1 = "value"
+  }
 }
 
 variable "git" {
