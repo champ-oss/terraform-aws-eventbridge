@@ -1,3 +1,10 @@
+locals {
+  # https://github.com/hashicorp/terraform/pull/18871
+  input_parameters = replace(replace(jsonencode(var.input_parameters),
+    "\\u003e", ">"),
+  "\\u003c", "<")
+}
+
 resource "aws_scheduler_schedule" "universal_target" {
   count = var.enable_resources ? 1 : 0
 
@@ -18,6 +25,6 @@ resource "aws_scheduler_schedule" "universal_target" {
   target {
     arn      = "arn:aws:scheduler:::aws-sdk:${var.service_name}:${var.api_action}"
     role_arn = var.role_arn
-    input    = jsonencode(var.input_parameters)
+    input    = local.input_parameters
   }
 }
