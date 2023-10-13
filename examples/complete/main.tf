@@ -5,8 +5,7 @@ module "this" {
   role_arn                  = aws_iam_role.this.arn
   maximum_window_in_minutes = 1
   input_parameters = {
-    Bucket      = module.s3.bucket
-    ExecutionId = "<aws.scheduler.execution-id>"
+    Bucket = module.s3.bucket
   }
 
   depends_on = [module.s3]
