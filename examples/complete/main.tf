@@ -12,7 +12,7 @@ module "this" {
 }
 
 module "s3" {
-  source  = "github.com/champ-oss/terraform-aws-s3.git?ref=v1.0.45-e99f267"
+  source  = "github.com/champ-oss/terraform-aws-s3.git?ref=v1.0.47-a8485d3"
   git     = "terraform-aws-eventbridge"
   protect = false
 }
